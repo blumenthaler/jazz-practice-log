@@ -9,6 +9,8 @@ class CreateJazzStandards < ActiveRecord::Migration
       t.string :levels_of_knowledge
       t.string :date_memorized
       t.integer :user_id
+      t.timestamps null: false
+
     end
   end
 end
