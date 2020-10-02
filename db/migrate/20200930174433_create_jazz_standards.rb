@@ -10,7 +10,6 @@ class CreateJazzStandards < ActiveRecord::Migration
       t.string :date_memorized
       t.integer :user_id
       t.timestamps null: false
-
     end
   end
 end
