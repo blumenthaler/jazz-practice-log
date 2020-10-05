@@ -22,5 +22,3 @@ standard_6 = JazzStandard.create(title: "Confirmation", composer: "Charlie Parke
 standard_7 = JazzStandard.create(title: "Autumn Leaves", composer: "Joseph Kosma", recording: "Somethin' Else", performer: "Cannonball Adderley", tempo: 120, levels_of_knowledge: "melody, chords", date_memorized: "July 4, 2020", user_id: user_3.id)
 
 
-
-
