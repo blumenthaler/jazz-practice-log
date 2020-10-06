@@ -1,6 +1,8 @@
-<%= s.title %><br>
-<%= s.composer %><br>
-<%= s.recording %> <%= s.performer %>
-<%= s.tempo %><br>
-<%= s.levels_of_knowledge %><br>
-<%= s.date_memorized %>
+<h2><%= @standard.title %></h2>
+<ul>
+    <h4><li>Composer: <%= @standard.composer %></li></h4>
+    <h4><li>Recording: <%= @standard.recording %> by <%= @standard.performer %></li></h4>
+    <h4><li>Tempo: <%= @standard.tempo %> bpm</li></h4>
+    <h4><li>Concepts: <%= @standard.levels_of_knowledge %></li></h4>
+    <h4><li>Date Memorized: <%= @standard.date_memorized %></li></h4>
+</ul>
