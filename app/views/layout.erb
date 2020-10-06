@@ -14,9 +14,18 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+
     <div class="wrapper">
 
-        <%= yield %>
+      <div class="nav">
+        <% if logged_in? %>
+          <a href="#">Your Standards</a>
+          <a href="#">Create a New Standard</a>
+          <a href="/logout">Logout</a>
+        <% end %>
+      </div>
+
+      <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2020 <strong>JazzPracticeLog</strong></small>
