@@ -1,0 +1,9 @@
+<h1>Your Standards</h1>
+
+<ol>
+<% @standards.each do |s| %>
+    <li><a href="/jazz-standards/<%= s.id %>"><%= s.title %></a></li>
+<% end %>
+</ol>
+
+

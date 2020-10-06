@@ -1,7 +1,8 @@
 class JazzStandardsController < ApplicationController
 
     get '/jazz-standards' do
-        @standards = JazzStandard.all
+        @user = current_user
+        @standards = @user.jazz_standards
         erb :'/jazz_standards/index'
     end
 end
