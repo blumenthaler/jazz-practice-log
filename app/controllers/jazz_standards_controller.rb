@@ -16,7 +16,7 @@ class JazzStandardsController < ApplicationController
             title: params[:title],
             composer: params[:composer],
             recording: params[:recording],
-            peformer: params[:performer],
+            performer: params[:performer],
             tempo: params[:tempo],
             levels_of_knowledge: params[:levels_of_knowledge],
             date_memorized: params[:date_memorized],
