@@ -32,7 +32,7 @@ class UsersController < ApplicationController
             flash[:welcome] = "Wecome, "
             redirect "/users/#{@user.id}"
         else
-            flash[:error] = "Please fill out all inputs to sign up."
+            flash[:error] = "Please fill out all inputs to sign up: #{@user.errors.full_messages.to_sentence}"
             redirect "/signup"
         end
     end
