@@ -17,6 +17,14 @@
 
     <div class="wrapper">
 
+      <% if flash[:error] %>
+        <h2 style="color:red;"><%= flash[:error] %></h2>
+      <% end %>
+
+      <% if flash[:message] %>
+        <h2><%= flash[:message] %></h2>
+      <% end %>
+
       <div class="nav">
         <% if logged_in? %>
           <a href="/jazz-standards">Your Standards</a>
