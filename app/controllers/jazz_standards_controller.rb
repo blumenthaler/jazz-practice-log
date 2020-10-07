@@ -11,7 +11,6 @@ class JazzStandardsController < ApplicationController
     end
 
     post '/jazz-standards' do
-        binding.pry
         @standard = JazzStandard.create(
             title: params[:title],
             composer: params[:composer],
@@ -26,7 +25,26 @@ class JazzStandardsController < ApplicationController
     end
 
     get '/jazz-standards/:id' do
-        @standard = JazzStandard.find_by(id: params[:id])
+        @standard = JazzStandard.find(params[:id])
         erb :"/jazz_standards/show"
+    end
+
+    get '/jazz-standards/:id/edit' do
+        @standard = JazzStandard.find(params[:id])
+        erb :"/jazz_standards/edit"
+    end
+
+    patch '/jazz-standards/:id' do
+        @standard = JazzStandard.find(params[:id])
+        @standard.update(
+            title: params[:title],
+            composer: params[:composer],
+            recording: params[:recording],
+            performer: params[:performer],
+            tempo: params[:tempo],
+            levels_of_knowledge: params[:levels_of_knowledge],
+            date_memorized: params[:date_memorized]
+            )
+        redirect "/jazz-standards/#{@standard.id}"
     end
 end
