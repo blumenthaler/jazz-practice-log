@@ -27,7 +27,6 @@ class JazzStandardsController < ApplicationController
                 user_id: current_user.id
                 )
         if @standard.save 
-        # if params[:title] != "" etc etc    
             flash[:message] = "New Standard Created!"
             redirect "/jazz-standards/#{@standard.id}"
         else
