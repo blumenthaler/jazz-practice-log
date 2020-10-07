@@ -7,7 +7,12 @@ class JazzStandardsController < ApplicationController
     end
 
     get '/jazz-standards/new' do
-        erb :'/jazz_standards/new'
+        if logged_in?
+            erb :'/jazz_standards/new'
+        else
+            flash[:error] = "You must be logged in to add a new Standard."
+            redirect '/'
+        end 
     end
 
     post '/jazz-standards' do
