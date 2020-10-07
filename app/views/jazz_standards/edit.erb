@@ -1,0 +1,29 @@
+<h2>Edit Standard:</h2>
+<br>
+<form method="post" action="/jazz-standards/<%= @standard.id %>">
+    <input type="hidden" name="_method" value="patch">
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" value="<%= @standard.title %>"><br><br>
+    
+    <label for="composer">Composer: </label>
+    <input type="text" name="composer" id="composer" value="<%= @standard.composer %>"><br><br>
+    
+    <label for="recording">Recording: </label>
+    <input type="text" name="recording" id="recording" value="<%= @standard.recording %>"><br><br>
+
+    <label for="performer">Performer: </label>
+    <input type="text" name="performer" id="performer" value="<%= @standard.performer %>"><br><br>
+
+    <label for="tempo">Tempo: </label>
+    <input type="text" name="tempo" id="tempo" value="<%= @standard.tempo %>"> bpm<br><br>
+
+    # Please change concepts input type to Checkboxes
+    <br><label for="levels_of_knowledge">Concepts: </label>
+    <input type="text" name="levels_of_knowledge" id="levels_of_knowledge" value="<%= @standard.levels_of_knowledge %>">(i.e.: melody, chords, bassline, lyrics)<br><br>
+
+    <label for="date_memorized">Date Memorized: </label>
+    <input type="text" name="date_memorized" id="date_memorized" value="<%= @standard.date_memorized %>"><br>
+    <br>
+
+    <input type="submit" value="Edit Standard">
+</form>
