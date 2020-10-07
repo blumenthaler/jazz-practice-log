@@ -6,4 +6,11 @@
     <h4><li>Concepts: <%= @standard.levels_of_knowledge %></li></h4>
     <h4><li>Date Memorized: <%= @standard.date_memorized %></li></h4>
 </ul>
-<a href="/jazz-standards/<%= @standard.id %>/edit">Edit</a>
+<br>
+<a href="/jazz-standards/<%= @standard.id %>/edit">Edit This Standard</a>
+<br>
+<br>
+<form method="post" action="/jazz-standards/<%= @standard.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete This Standard">
+</form>

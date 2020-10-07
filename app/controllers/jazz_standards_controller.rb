@@ -47,4 +47,10 @@ class JazzStandardsController < ApplicationController
             )
         redirect "/jazz-standards/#{@standard.id}"
     end
+
+    delete '/jazz-standards/:id' do
+        @standard = JazzStandard.find(params[:id])
+        @standard.destroy
+        redirect '/jazz-standards'
+    end
 end
