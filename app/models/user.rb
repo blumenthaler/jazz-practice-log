@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
     has_secure_password
     has_many :jazz_standards
+    validates :username, :email, :password, :instrument, presence: true
 end

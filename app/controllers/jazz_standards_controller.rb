@@ -11,17 +11,24 @@ class JazzStandardsController < ApplicationController
     end
 
     post '/jazz-standards' do
-        @standard = JazzStandard.create(
-            title: params[:title],
-            composer: params[:composer],
-            recording: params[:recording],
-            performer: params[:performer],
-            tempo: params[:tempo],
-            levels_of_knowledge: params[:levels_of_knowledge],
-            date_memorized: params[:date_memorized],
-            user_id: current_user.id
-            )
-        redirect "/jazz-standards/#{@standard.id}"
+        @standard = JazzStandard.new(
+                title: params[:title],
+                composer: params[:composer],
+                recording: params[:recording],
+                performer: params[:performer],
+                tempo: params[:tempo],
+                levels_of_knowledge: params[:levels_of_knowledge],
+                date_memorized: params[:date_memorized],
+                user_id: current_user.id
+                )
+        if @standard.save 
+        # if params[:title] != "" etc etc    
+            flash[:message] = "New Standard Created!"
+            redirect "/jazz-standards/#{@standard.id}"
+        else
+            flash[:error] = "Please fill out all inputs to create a Standard"
+            redirect '/jazz-standards/new'
+        end
     end
 
     get '/jazz-standards/:id' do
