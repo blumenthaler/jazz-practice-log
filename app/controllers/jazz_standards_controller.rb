@@ -26,7 +26,7 @@ class JazzStandardsController < ApplicationController
             flash[:message] = "New Standard Created!"
             redirect "/jazz-standards/#{@standard.id}"
         else
-            flash[:error] = "Please fill out all inputs to create a Standard"
+            flash[:error] = "Please fill out all inputs to create a Standard: #{@standard.errors.full_messages.to_sentence}"
             redirect '/jazz-standards/new'
         end
     end
