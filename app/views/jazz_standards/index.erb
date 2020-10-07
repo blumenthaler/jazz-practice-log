@@ -4,7 +4,7 @@
 <% @standards.each do |s| %>
     <li>
         <h4><a href="/jazz-standards/<%= s.id %>">"<%= s.title %>" by <%= s.composer %></a></h4>
-        <h5>Recording: <%= s.recording %> by <%= s.performer %></h5>
+        <h5>Recording: <i><%= s.recording %></i> by <%= s.performer %></h5>
         <h5>Tempo: <%= s.tempo %> bpm</h5>
         <h5>Levels of Knowledge: <%= s.levels_of_knowledge %></h5>
         <h5>Date Memorized: <%= s.date_memorized %></h5>
