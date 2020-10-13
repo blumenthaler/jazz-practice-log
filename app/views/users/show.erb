@@ -1,10 +1,11 @@
 <% if flash[:welcome] %>
+    <br>
     <h2><%= flash[:welcome] %><%= @user.username%></h2>
 <% else %>
+    <br>
     <h2><%= @user.username %></h2>
 <% end %>
 <h3>Email: <%= @user.email %></h3>
 <h3>Instrument: <%= @user.instrument %></h3>
 <br>
-<h3>Your Standards:</h3>
-<h4>This is where your standards will be listed (ordered list, by date created/memorized)</h4>
+<h3><a href="/jazz-standards">See Your Standards</a></h3>
