@@ -27,8 +27,9 @@
 
       <div class="nav">
         <% if logged_in? %>
+          <a href="/users/<%= current_user.id %>">Profile</a>
           <a href="/jazz-standards">Your Standards</a>
-          <a href="/jazz-standards/new">Create a New Standard</a>
+          <a href="/jazz-standards/new">Create New Standard</a>
           <a href="/logout">Logout</a>
         <% end %>
       </div>
