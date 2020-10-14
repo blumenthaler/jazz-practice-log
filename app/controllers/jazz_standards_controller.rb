@@ -38,21 +38,17 @@ class JazzStandardsController < ApplicationController
 
     get '/jazz-standards/:id' do
         @standard = JazzStandard.find(params[:id])
-        if authorized_to_view_or_edit?(@standard)
-            erb :"/jazz_standards/show"
-        else
-            flash[:error] = "You are not authorized to see this User's Standard."
-            redirect '/jazz-standards'
-        end
+        @user = current_user
+        erb :"/jazz_standards/show"
     end
 
     get '/jazz-standards/:id/edit' do
         @standard = JazzStandard.find(params[:id])
-        if authorized_to_view_or_edit?(@standard)
+        if authorized_to_edit?(@standard)
             erb :"/jazz_standards/edit"
         else
             flash[:error] = "You are not authorized to edit this User's Standard."
-            redirect '/jazz-standards'
+            redirect "/jazz-standards/#{@standard.id}"
         end
     end
 

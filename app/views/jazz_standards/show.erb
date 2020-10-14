@@ -1,5 +1,9 @@
 <br>
-<h2><%= @standard.title %></h2>
+<% if @user.id != @standard.user_id %>
+    <h2><%= find_user_by_standard(@standard).username %>'s <i><%= @standard.title %></i></h2>
+<% else %>
+    <h2><i><%= @standard.title %></i></h2>
+<% end %>
 <br>
 <ul>
     <h4><li>Composer: <%= @standard.composer %></li></h4>
@@ -10,10 +14,15 @@
     <h4><li>Notes: <%= @standard.notes %></li></h4>
 </ul>
 <br>
-<a href="/jazz-standards/<%= @standard.id %>/edit">Edit This Standard</a>
-<br>
-<br>
-<form method="post" action="/jazz-standards/<%= @standard.id %>">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete This Standard">
-</form>
+
+<% if @user.id == @standard.user_id %>
+
+    <a href="/jazz-standards/<%= @standard.id %>/edit">Edit This Standard</a>
+    <br><br>
+    <form method="post" action="/jazz-standards/<%= @standard.id %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete This Standard">
+    </form>
+<% else %>
+    <h4><a href="/users/<%= find_user_by_standard(@standard).id %>">Back to <%= find_user_by_standard(@standard).username %>'s List</a></h4>
+<% end %>

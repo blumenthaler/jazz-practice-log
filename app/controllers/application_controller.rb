@@ -27,8 +27,12 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-    def authorized_to_view_or_edit?(standard)
+    def authorized_to_edit?(standard)
       standard.user == current_user
+    end
+
+    def find_user_by_standard(standard)
+      User.find_by(id: standard.user_id)
     end
   end
 
