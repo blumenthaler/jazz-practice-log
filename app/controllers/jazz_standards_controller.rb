@@ -24,6 +24,7 @@ class JazzStandardsController < ApplicationController
                 tempo: params[:tempo],
                 levels_of_knowledge: params[:levels_of_knowledge],
                 date_memorized: params[:date_memorized],
+                notes: params[:notes],
                 user_id: current_user.id
                 )
         if @standard.save 
@@ -64,7 +65,8 @@ class JazzStandardsController < ApplicationController
             performer: params[:performer],
             tempo: params[:tempo],
             levels_of_knowledge: params[:levels_of_knowledge],
-            date_memorized: params[:date_memorized]
+            date_memorized: params[:date_memorized],
+            notes: params[:notes]
             )
         redirect "/jazz-standards/#{@standard.id}"
     end
