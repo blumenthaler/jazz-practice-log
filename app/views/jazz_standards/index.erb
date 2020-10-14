@@ -1,10 +1,10 @@
 <br>
-<h1>Your Jazz Standards</h1>
+<h2>Your Jazz Standards</h2>
 <br>
 <ol>
 <% @standards.each do |s| %>
     <li>
-        <h4><a href="/jazz-standards/<%= s.id %>">"<%= s.title %>" by <%= s.composer %></a></h4>
+        <h4><a href="/jazz-standards/<%= s.id %>"><i><%= s.title %></i> by <%= s.composer %></a></h4>
         <br>
     </li>
 <% end %>
