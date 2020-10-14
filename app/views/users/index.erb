@@ -1,0 +1,11 @@
+<br>
+<h2>Browse User Lists:</h2>
+<br>
+<ol>
+<% @users.each do |user| %>
+    <li><h3><%= user.username %></h3>
+    # this shows the CURRENT users show page.... hmmm
+    <a href="/users/<%= user.id %>">Test</a></li>
+    <br>    
+<% end %>
+</ol>

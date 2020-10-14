@@ -16,8 +16,19 @@ class UsersController < ApplicationController
         end
     end
 
+    get '/users' do
+        if logged_in?
+            @users = User.all
+            erb :'/users/index'
+        else
+            flash[:error] = "Please log in to see the list of users."
+            redirect '/login'
+        end
+    end
+
     get '/users/:id' do
-        @user = current_user
+        @user = User.find_by(id: params[:id])
+        @standards = @user.jazz_standards
         erb :'/users/show'
     end
 

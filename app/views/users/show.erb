@@ -8,4 +8,19 @@
 <h3>Email: <%= @user.email %></h3>
 <h3>Instrument: <%= @user.instrument %></h3>
 <br>
-<h3><a href="/jazz-standards">See Your Practice Log</a></h3>
+
+<% if @user == current_user %>
+    <h3><a href="/jazz-standards">See Your Practice Log</a></h3>
+    <br>
+    <h3><a href="/users">See Other Users' Lists</a></h3>
+<% else %>
+    <h2>Test <%= @user.username %>'s Jazz Standards</h2>
+    <ol>
+    # Got this working, now finish adding information about each standard
+    # OR offer links to that User's standard's show page
+        <% @standards.each do |standard| %>
+            <li><%= standard.title %><br>
+            </li><br>
+        <% end %>
+    </ol>
+<% end %>
