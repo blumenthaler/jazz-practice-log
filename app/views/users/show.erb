@@ -16,14 +16,14 @@
     <h2><%= @user.username %>'s Jazz Standards</h2>
     <ol>
         <% @standards.each do |standard| %>
-            <li><h3><a href="/jazz-standards/<%= standard.id %>"><%= standard.title %></a></h3>
+            <li><h3><a href="/jazz-standards/<%= standard.id %>"><i><%= standard.title %></i> by <%= standard.composer %></a></h3>
             </li>
         <% end %>
     </ol>
 <% end %>
 <% if @user != current_user %>
     <br>
-    <h3><a href="/users">See All User's Lists</a></h3>
+    <h3><a href="/users">See All User Lists</a></h3>
 <% else %>
-    <h3><a href="/users">See All User's Lists</a></h3>
+    <h3><a href="/users">See All User Lists</a></h3>
 <% end %>
