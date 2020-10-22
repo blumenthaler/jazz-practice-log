@@ -1,9 +1,14 @@
 class JazzStandardsController < ApplicationController
 
     get '/jazz-standards' do
-        @user = current_user
-        @standards = @user.jazz_standards
-        erb :'/jazz_standards/index'
+        if logged_in?
+            @user = current_user
+            @standards = @user.jazz_standards
+            erb :'/jazz_standards/index'
+        else
+            flash[:error] = "You must be logged in to see your list"
+            redirect '/login'
+        end
     end
 
     get '/jazz-standards/new' do
@@ -37,9 +42,14 @@ class JazzStandardsController < ApplicationController
     end
 
     get '/jazz-standards/:id' do
-        @standard = JazzStandard.find(params[:id])
-        @user = current_user
-        erb :"/jazz_standards/show"
+        if logged_in?
+            @standard = JazzStandard.find(params[:id])
+            @user = current_user
+            erb :"/jazz_standards/show"
+        else
+            flash[:error] = "You must be logged in to see this jazz standard."
+            redirect '/login'
+        end
     end
 
     get '/jazz-standards/:id/edit' do
