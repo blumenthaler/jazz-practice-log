@@ -27,9 +27,14 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        @user = User.find_by(id: params[:id])
-        @standards = @user.jazz_standards
-        erb :'/users/show'
+        if logged_in?
+            @user = User.find_by(id: params[:id])
+            @standards = @user.jazz_standards
+            erb :'/users/show'
+        else
+            flash[:error] = "Please log in to see this user's list."
+            redirect '/login'
+        end
     end
 
     get '/signup' do
